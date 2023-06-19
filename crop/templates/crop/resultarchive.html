@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block breadcrumbs %}
+	<!-- ОТНОСИТСЯ К СТРАНИЦЕ С КОНТЕНТОМ, ЗАГОЛОВОК -->
+{% endblock %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div id="content-configure">
+     <ul>
+<h5><li>Нажмите на кнопку  <b class="text-success">DOWNLOAD</b> и дождитесь окончания загрузки.</li></h5>
+<h5><li>Оставьте отзыв в разделе <a class="text-info" href="{% url 'feedback' %}">Feedback</a>:)</li></h5>
+  </ul>
+
+</div>
+<div id="download-button">
+<a href="{% url 'finalarchive' data.pk  %}" class="btn btn-success">DOWNLOAD</a>
+</div>
+{% else %}
+<div id="content-configure">
+    <h4>К сожалению, вы не авторизованы. Пожалуйста, <a class="text-success" href="{% url 'login' %}">авторизуйтесь</a> или <a class="text-success" href="{% url 'register' %}">зарегистрируйтесь</a>, если еще не сделали этого.</h4>
+</div>
+{% endif %}
+{% endblock %}

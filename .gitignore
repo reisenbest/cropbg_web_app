@@ -1,0 +1,25 @@
+# created by virtualenv automatically
+
+settings.py
+
+# SQLite database file
+**/*.sqlite3
+
+# Environment variables
+**/.env
+
+# Environment variables
+**/.cfg
+
+# PyCharm settings
+.idea/
+
+# Editor backup files
+*~
+
+#logins and pass
+**/logins.txt
+
+#django-files
+users_files/
+static_debug/

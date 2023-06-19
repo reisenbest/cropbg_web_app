@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+
+{% block breadcrumbs %}
+	<!-- ОТНОСИТСЯ К СТРАНИЦЕ С КОНТЕНТОМ, ЗАГОЛОВОК -->
+{% endblock %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div id="content-configure">
+  <ul>
+<h5><li>Выберите изображение, у которого вы хотите удалить фон. Доступные форматы: [<span class="text-info">'jpg'</span>, <span class="text-info">'jpeg'</span>, <span class="text-info">'png'</span>, <span class="text-info">'gif'</span>, <span class="text-info">'bmp'</span>, <span class="text-info">'jfif'</span>, <span class="text-info">'tiff'</span>, <span class="text-info">'raw'</span>]</li></h5>
+<h5><li>Вы можете добавить однотонный фон для своего изображения. Для этого укажите через запятую значения RGBA в формате <span class="text-info">'255,255,255,255'</span>. Подробнее можно прочесть в разделе <a class="text-info" href="{% url 'userguide' %}">User Guide</a>. Если вы не хотите добавлять фон на свое изображение - просто проигнорируйте поле <span class="text-info">"Цвет фона"</span>. </li></h5>
+<h5><li>Отправьте данные, нажав кнопку <b class="text-success">SUBMIT</b>.</li></h5>
+<h5><li>Дождитесь окончания операции удаления фона. На сайте пока не реализовано динамическое обновление страниц, поэтому статус-бара пока нет. По окончании обработки изображения вы будете перенаправлены на страницу для скачивания итогового изображения.</li></h5>
+  </ul>
+
+</div>
+{% else %}
+<div id="content-configure">
+    <h4>К сожалению, вы не авторизованы. Пожалуйста, <a class="text-success" href="{% url 'login' %}">авторизуйтесь</a> или <a class="text-success" href="{% url 'register' %}">зарегистрируйтесь</a>, если еще не сделали этого.</h4>
+</div>
+{% endif %}
+{% if request.user.is_authenticated %}
+<div  class="form-container">
+<form  method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+<div class="text-danger">{{ form.image.errors }}</div>
+  <div class="text-danger">{{ form.bgcolor.errors }}</div>
+
+{% for f in form %}
+  <div class="form-group">
+    <fieldset>
+    <label class="form-label mt-4" for="readOnlyInput">{{f.label}}</label>
+  <p>{{f}}</p>
+      </fieldset>
+    </div>
+  {% endfor %}
+  <div class="text-danger">{{ form.non_field_errors }}</div>
+    <div class="mx-auto text-center">
+      <button type="submit" class="btn btn-success">SUBMIT</button>
+    </div>
+</form>
+</div>
+{% endif %}
+
+{% endblock %}

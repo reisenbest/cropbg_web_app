@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block breadcrumbs %}
+	<!-- ОТНОСИТСЯ К СТРАНИЦЕ С КОНТЕНТОМ, ЗАГОЛОВОК -->
+{% endblock %}
+
+
+{% block content %}
+
+
+
+
+{% if request.user.is_authenticated %}
+<div id="content-configure">
+<h4 class="text-danger">Выберите действие:</h4>
+<ul>
+    <h5><li>я хочу удалить фон у <a class="text-info" href="{% url 'cropone' %}">одного</a> изображения.</li></h5>
+    <h5><li>я хочу удалить фон у <a class="text-info" href="{% url 'croparchive' %}">нескольких</a> изображений.</li></h5>
+</ul>
+
+</div>
+{% else %}
+<div id="content-configure">
+    <h4>К сожалению, вы не авторизованы. Пожалуйста, <a class="text-success" href="{% url 'login' %}">авторизуйтесь</a> или <a class="text-success" href="{% url 'register' %}">зарегистрируйтесь</a>, если еще не сделали этого.</h4>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% block breadcrumbs %}
+	<!-- ОТНОСИТСЯ К СТРАНИЦЕ С КОНТЕНТОМ, ЗАГОЛОВОК -->
+{% endblock %}
+
+
+{% block content %}
+<div id="content-configure">
+{% if request.user.is_authenticated %}
+<h2>Авторизация:</h2>
+{% else %}
+
+
+  <h4 class="text-danger">Авторизация:</h4>
+
+
+{% endif %}
+</div>
+
+<div  class="form-container">
+<form  method="post">
+  {% csrf_token %}
+
+{% for f in form %}
+  <div class="form-group">
+    <fieldset>
+    <label class="form-label mt-4" for="readOnlyInput">{{f.label}}</label>
+  <p>{{f}}</p>
+      </fieldset>
+    </div>
+  {% endfor %}
+  <div class="text-danger">{{ form.non_field_errors }}</div>
+
+
+    <div class="mx-auto text-center">
+      <button type="submit" class="btn btn-success">LOGIN</button>
+    </div>
+
+</form>
+</div>
+{% endblock %}

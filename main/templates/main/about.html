@@ -1,0 +1,25 @@
+{% extends 'main/base.html' %}
+
+{% block breadcrumbs %}
+	<!-- ОТНОСИТСЯ К СТРАНИЦЕ С КОНТЕНТОМ, ЗАГОЛОВОК -->
+{% endblock %}
+
+
+{% block content %}
+{% if request.user.is_authenticated %}
+<div id="content-configure">
+<h3 class="text-danger">Техническая информация:</h3>
+<h4>Проект подготовлен в учебно-ознакомительных целях. При его создании использовались следующие ресурсы и библиотеки:</h4>
+<ul>
+    <h5><li>Для создания архитектуры веб-приложения использовался язык <a href="https://www.python.org/?hl=RU"><span class="text-info">Python</span></a> и библиотека <a href="https://www.djangoproject.com/"><span class="text-info">Django 4.2.1.</span></a></li></h5>
+    <h5><li>Для реализации функционала обработки использовалась библиотека <a href="https://github.com/danielgatis/rembg?ysclid=litj4ylncf478557492"><span class="text-info">rembg</span></a></li></h5>
+    <h5><li>здесь будет ссылка на гитхаб</li></h5>
+</ul>
+
+</div>
+{% else %}
+<div id="content-configure">
+    <h4>К сожалению, вы не авторизованы. Пожалуйста, <a class="text-success" href="{% url 'login' %}">авторизуйтесь</a> или <a class="text-success" href="{% url 'register' %}">зарегистрируйтесь</a>, если еще не сделали этого.</h4>
+</div>
+{% endif %}
+{% endblock %}

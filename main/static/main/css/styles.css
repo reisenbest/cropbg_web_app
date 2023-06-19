@@ -1,0 +1,127 @@
+#header a.navbar-brand  {
+    color: red;
+    font-size: 40px;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+#header .navbar li {
+  list-style-type: none;
+}
+
+#header a.nav-link:hover {
+  color: red; /* Замените на желаемый цвет */
+  /* Дополнительные стили для наведения курсора */
+}
+
+
+#header li {
+  color: white;
+}
+#header a {
+  color: white;
+}
+
+#header p {
+  color: white;
+}
+
+
+
+#logout .nav-item {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+/* FOOTER */
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #000000;
+  padding: 1% 0%;
+  text-align: center;
+  border-top: 5px solid #ccc; /* Линия границы сверху */
+}
+
+#footer .container {
+  max-width: auto;
+  margin: 0 auto;
+}
+
+#footer p {
+  margin: 0;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.form-container {
+  overflow-y: auto; /* Добавление вертикальной прокрутки при необходимости */
+}
+
+
+
+.logo {
+  width: 50px; /* Ширина изображения */
+  height: 50px; /* Высота изображения */
+  vertical-align: middle; /* Выравнивание изображения по вертикали */
+}
+
+/* Стили для контейнера формы */
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+}
+
+label.form-label.mt-4 {color: black;}
+
+
+#content {
+  height: 100%; /* Задает высоту блока на весь экран */
+  overflow-y: auto; /* Включает вертикальную прокрутку, если контент выходит за пределы блока */
+}
+
+
+
+/* CONTENT */
+
+#content-configure {
+  padding: 30px; /* Отступы от краев блока */
+  overflow-y: auto; /* Включение вертикальной прокрутки, если содержимое блока превышает его размеры */
+  max-height: 80%; /* Максимальная высота блока, при которой будет появляться вертикальная прокрутка */
+  margin-bottom: 20px; /* Добавление отступа снизу */
+  padding-bottom: 50px; /* Добавление дополнительного отступа снизу */
+}
+
+@media (max-width: 767px) {
+  #content-configure {
+    max-height: none; /* Снимаем ограничение на максимальную высоту для мобильных устройств */
+    overflow-y: visible; /* Отключаем вертикальную прокрутку */
+    padding: 10px; /* Меньшие отступы от краев блока для мобильных устройств */
+  }
+}
+
+#download-button {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh; /* Высота кнопки будет равна высоте видимой области страницы */
+}
+
+.form-container {
+  height: 400px; /* Задайте желаемую высоту контейнера */
+  overflow: auto; /* Включение вертикальной прокрутки при необходимости */
+  padding-bottom: 70px; /* Добавление дополнительного отступа снизу */
+}
+
+
+/* Добавление стилей для мобильных устройств */
+@media (max-width: 768px) {
+  .form-container {
+    height: auto; /* Отключение фиксированной высоты для мобильных устройств */
+    overflow: hidden; /* Отключение прокрутки на мобильных устройствах */
+  }
+}
